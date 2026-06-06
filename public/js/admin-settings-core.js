@@ -34,6 +34,7 @@
     'home_hitokoto_font',
     'home_site_name',
     'home_site_description',
+    'home_footer_text',
     'home_default_category',
     'home_category_position',
     'home_category_flow',
@@ -87,6 +88,7 @@
       home_hitokoto_font: '',
       home_site_name: '',
       home_site_description: '',
+      home_footer_text: '',
       home_category_position: 'below_search',
       home_category_flow: 'single_line',
       layout_enable_frosted_glass: false,
@@ -167,6 +169,7 @@
       homeHitokotoFontInput: document.getElementById('homeHitokotoFont'),
       homeSiteNameInput: document.getElementById('homeSiteName'),
       homeSiteDescriptionInput: document.getElementById('homeSiteDescription'),
+      homeFooterTextInput: document.getElementById('homeFooterText'),
       homeDefaultCategorySelect: document.getElementById('homeDefaultCategory'),
       homeRememberLastCategorySwitch: document.getElementById('homeRememberLastCategorySwitch'),
       searchEngineSwitch: document.getElementById('searchEngineSwitch'),
@@ -353,6 +356,7 @@
     currentSettings.home_hitokoto_font = refs.homeHitokotoFontInput?.value.trim() || '';
     currentSettings.home_site_name = refs.homeSiteNameInput?.value.trim() || '';
     currentSettings.home_site_description = refs.homeSiteDescriptionInput?.value.trim() || '';
+    currentSettings.home_footer_text = refs.homeFooterTextInput?.value.trim() || '';
     currentSettings.home_default_category = refs.homeDefaultCategorySelect?.value || '';
     currentSettings.home_remember_last_category = !!refs.homeRememberLastCategorySwitch?.checked;
     currentSettings.home_search_engine_enabled = !!refs.searchEngineSwitch?.checked;
@@ -495,6 +499,7 @@
     setValue(refs.homeHitokotoFontInput, currentSettings.home_hitokoto_font || '');
     setValue(refs.homeSiteNameInput, currentSettings.home_site_name || '');
     setValue(refs.homeSiteDescriptionInput, currentSettings.home_site_description || '');
+    setValue(refs.homeFooterTextInput, currentSettings.home_footer_text || '');
     setValue(refs.homeDefaultCategorySelect, currentSettings.home_default_category || '');
     setChecked(refs.homeRememberLastCategorySwitch, currentSettings.home_remember_last_category);
     setChecked(refs.searchEngineSwitch, currentSettings.home_search_engine_enabled);

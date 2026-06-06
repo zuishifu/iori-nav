@@ -49,6 +49,7 @@ test('getSettingsKeys matches parseable setting fields', () => {
 
   assert.ok(keys.includes('layout_custom_wallpaper'));
   assert.ok(keys.includes('home_default_category'));
+  assert.ok(keys.includes('home_footer_text'));
   assert.ok(keys.includes('layout_card_animation'));
   assert.ok(keys.includes('card_desc_color'));
   assert.equal(new Set(keys).size, keys.length);
@@ -70,6 +71,7 @@ test('normalizeSettingValueForStorage validates style and enum settings', () => 
   assert.deepEqual(normalizeSettingValueForStorage('home_category_position', 'top'), { ok: true, value: 'top' });
   assert.equal(normalizeSettingValueForStorage('home_category_position', 'right').ok, false);
   assert.deepEqual(normalizeSettingValueForStorage('home_category_flow', 'multi_line'), { ok: true, value: 'multi_line' });
+  assert.deepEqual(normalizeSettingValueForStorage('home_footer_text', '自定义页脚'), { ok: true, value: '自定义页脚' });
   assert.equal(normalizeSettingValueForStorage('home_category_flow', 'wrap').ok, false);
   assert.equal(normalizeSettingValueForStorage('layout_custom_wallpaper', 'javascript:alert(1)').ok, false);
 });

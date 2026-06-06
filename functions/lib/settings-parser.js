@@ -30,6 +30,7 @@ export const SETTINGS_SCHEMA = {
     home_hitokoto_font: { default: '', type: 'string' },
     home_site_name: { default: '', type: 'string' },
     home_site_description: { default: '', type: 'string' },
+    home_footer_text: { default: '', type: 'string' },
     home_search_engine_enabled: { default: false, type: 'bool' },
     home_default_category: { default: '', type: 'string' },
     home_remember_last_category: { default: false, type: 'bool' },

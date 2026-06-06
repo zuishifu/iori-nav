@@ -61,6 +61,7 @@ async function renderHome(settingsRows = []) {
       },
       SITE_NAME: 'Unit Site',
       SITE_DESCRIPTION: 'Unit Description',
+      FOOTER_TEXT: 'Unit Footer',
       ENABLE_PUBLIC_SUBMISSION: 'false',
     },
     waitUntil() {},
@@ -88,6 +89,18 @@ test('home page does not render the retired GitHub shortcut icon', async () => {
 
   assert.equal(html.includes('title="GitHub"'), false);
   assert.equal(html.includes('hideGithubSwitch'), false);
+});
+
+test('home footer text can be configured from settings', async () => {
+  const defaultHtml = await renderHome();
+  const configuredHtml = await renderHome([
+    { key: 'home_footer_text', value: 'Custom Footer' },
+  ]);
+  const year = new Date().getFullYear();
+
+  assert.equal(defaultHtml.includes(`© ${year} Unit Footer`), true);
+  assert.equal(configuredHtml.includes(`© ${year} Custom Footer`), true);
+  assert.equal(configuredHtml.includes(`© ${year} Unit Footer`), false);
 });
 
 test('home category navigation can render at the top', async () => {

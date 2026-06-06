@@ -295,6 +295,7 @@
     return {
       siteName: getPreviewInputValueOrDefault(refs.homeSiteNameInput, current.home_site_name, '灰色轨迹'),
       siteDescription: getPreviewInputValueOrDefault(refs.homeSiteDescriptionInput, current.home_site_description, '一个优雅、快速、易于部署的书签收藏与分享平台'),
+      footerText: getPreviewInputValueOrDefault(refs.homeFooterTextInput, current.home_footer_text, '曾梦想仗剑走天涯'),
       hideTitle: !!refs.hideTitleSwitch?.checked,
       hideSubtitle: !!refs.hideSubtitleSwitch?.checked,
       hideStats: !!refs.hideStatsSwitch?.checked,
@@ -702,6 +703,7 @@
     const hitokotoText = root.querySelector('[data-preview-role="hitokotoText"]');
     const cardGrid = root.querySelector('[data-preview-role="cardGrid"]');
     const footerYear = root.querySelector('[data-preview-role="footerYear"]');
+    const footerText = root.querySelector('[data-preview-role="footerText"]');
 
     root.classList.toggle('is-horizontal', isHorizontal);
     root.classList.toggle('has-wallpaper', !!settings.wallpaper);
@@ -765,6 +767,7 @@
       applyTextStyle(hitokotoText, settings.hitokotoFont, settings.hitokotoSize, settings.hitokotoColor);
     }
     if (footerYear) footerYear.textContent = String(new Date().getFullYear());
+    if (footerText) footerText.textContent = settings.footerText;
 
     renderPreviewCards(cardGrid, settings, previewState);
     if (
@@ -1038,6 +1041,7 @@
     const liveInputs = [
       refs.homeSiteNameInput,
       refs.homeSiteDescriptionInput,
+      refs.homeFooterTextInput,
       refs.hideAdminSwitch,
       refs.searchEngineSwitch,
       refs.hideTitleSwitch,
